@@ -1,0 +1,25 @@
+ <!--navbar-->
+ <section>
+    <nav class="h-10 bg-blue-300">
+
+    </nav>
+    
+    <nav class="flex align-items-end justify-between p-3 mb-4">
+        <div>
+            <h2 class="font-bold text-2xl text-gray-800 hover:text-gray-500"><a href="/">NCA</a></h2>
+        </div>
+        {% if request.user.is_authenticated%}
+            <a href="{% url 'logout'%}" class="px-6 py-2 bg-slate-500 font-semibold rounded-lg text-white hover:bg-slate-700">logout</a>
+        {% else %}
+            <ul class="space-x-4 flex">
+                <li><a href="{% url 'login'%}" class="py-2 px-6 text-gray-800 border border-blue-500  font-semibold hover:bg-blue-700 hover:text-white text-lg rounded-se-xl rounded-es-xl">login</a></li>
+                <li><a href="{% url 'signup'%}" class="py-2 px-6 border border-blue-500 text-gray-800  font-semibold hover:bg-blue-700 hover:text-white hover:text-lg rounded-se-xl rounded-es-xl">signup</a></li>
+            </ul>
+            
+        
+        
+    
+        {% endif %}
+    </nav>
+    <hr>
+</section>
