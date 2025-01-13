@@ -1,32 +1,117 @@
 
 {% extends "core/base.html" %}
 
+{% load static %}
 {% block content %}
 
 
 <!--cards section-->
-<section class="mt-6">
-    <div class="flex align-items-center justify-center space-x-20">
-        <div>
-            <div class="bg-slate-200  min-h-72 w-80 p-4 rounded-t-lg shadow-md">
-                <p>dfk</p>
-            </div>
-            <div class="bg-blue-500 text-white p-4 rounded-b-lg shadow-md">
-                <h3 class="text-xl font-semibold"><a href="">Type Approval Certificate</a></h3>
+<section class="mt-6 p-6">
+    <div class="grid  md:grid-cols-2 lg:grid-cols-2  gap-6 justify-center ">
+        <!--first card-->
+        <div class="h-auto w-auto  text-left ">
+            <p class="text-6xl text-gray-900 uppercase font-semibold">nca</p>
+            <p class="text-6xl text-gray=900 uppercase font-semibold">
+                type approval & <br> dealership license<br>application portal
+            </p>
+
+            <div class="bg-blue-600 rounded-xl w-80 mt-4 ml-20 h-4">
+
             </div>
         </div>
         
-        <div>
-            <div class="bg-slate-200 min-h-72 w-80 p-4 rounded-t-lg shadow-md">
-                <p>dfk</p>
-            </div>
-            <div class="bg-blue-500 text-white p-4 rounded-b-lg shadow-md">
-                <h3 class="text-xl font-semibold"><a href="">Dealership License</a></h3>
-            </div>
+        <!--second card-->
+        <div class="w-80 h-80">
+            <img src="{% static 'images/logo.png'%}" alt="nca logo">
             
         </div>
     </div>
 
     
+</section>
+
+<!--accordion section-->
+<section class="px-6 mb-6">
+    <div>
+        <!--type approval accordion card-->
+        <div x-data = "{open:false}" class="shadow shadow-md w-[60wv] mx-auto  rounded-lg">
+            <!--accordion heading-->
+            <div class="flex justify-between items-center bg-blue-100 rounded-lg">
+                <p class="px-4 text-3xl font-bold uppercase  py-4">type approval application</p>
+                <button @click = "open =! open" x-html = "open ? '-' : '+'" class="text-5xl px-2 font-bold hover:text-gray-500"></button>
+            </div> 
+            <!--accordion body-->
+            <div x-show="open" class="text-wrap px-6 py-2 text-gray-500">
+                <p>
+                    NCA Application Portal for Type Approval Certificate
+                    and Dealership Licence
+                    To apply for Type Approval Certificate or Dealership License, Login to your account OR Contact typeapproval@nca.org.gh for any help.
+
+                    Type Approval Certificate
+                    Type Approval Certification is proof that specified requirements relating to any ICT product has been fulfilled.  The NCA grants Type Approval Certificate to ICT products that meet the minimum set of regulatory, technical and safety requirements.
+                </p>
+                <br>
+                <p>
+                    The NCA  Type Approval Certificate  is required before any ICT product is allowed onto the Ghanaian market. This is in accordance with section 3 (n) of the NCA Act, Act 769 of 2008, sections  66 and 67 of the Electronic Communications Act, Act 775.
+                </p>
+                <br>
+                Type Approval Certificate is intended for the following group of people:
+        
+                <ul class="ml-4 capitalize">
+                    <li>1.local and international vendors and assemblers</li>
+                    <li>2.Dealers of ICT equipment for making/commercial use.</li>
+                    <li>3.licensed operators service providers.</li>
+                    <li>4.individuals or companies wishing to import equipment for their own use (i.e not marketing/commercial use)</li>
+
+                </ul>
+                <br>
+                The essence of Type Approval Certification is to ensure the following:
+                <br>
+                <ul class="ml-4 capitalize">
+                    <li>1.Efficient Use of radio frequency spectrum for electronic communication services;</li>
+                    <li>2.To facilitate interoperable use and prevent disruption to public networks</li>
+                    <li>3.To maintain and enhance quality of service with regards to communication services</li>
+                    <li>4.To facilitate the availability of quality ICT equipment on our market; </li>
+                    <li>5.To protect the health and safety of ICT users.</li>
+                </ul>
+                <br>
+
+                Products that require type approval certificate could be modular or whole.
+            </div>
+
+        </div>
+        
+        <!--dealership license accordion card-->
+        <div x-data = "{open:false}" class="shadow shadow-md w-[60wv] mx-auto mt-1 rounded-lg">
+            <div class="flex justify-between items-center bg-blue-100 rounded-lg">
+                <p class="px-4 text-3xl font-bold uppercase  py-4">dealership license</p>
+                <button @click = "open =! open" x-html = "open ? '-' : '+'" class="text-5xl px-2 font-bold hover:text-gray-500"></button>
+            </div>
+
+            <div x-show="open" class="text-wrap p-6 text-gray-500">
+                <p>
+                    A Dealership License is an  Authorisation  that the NCA grants to  an importer of Electronic Communications Equipment to import and sell type approved equipment on the Ghanaian market.
+                    <br><br>
+                    The NCA  Dealership Licence   is required before any ICT product is imported, sold and used in the Ghanaian market. This is in accordance with section 3 (c) of the NCA Act, Act 769 of 2008.
+                    <br><br>
+                    Dealership License  is intended for the following group of people;<br>
+                    <ul class="ml-4 capitalize">
+                        <li>1.Dealers of ICT equipment  for marketing/commercial use.</li>
+                    </ul>
+                    <br><br>
+                    The objective of licensing  Dealers in ICT products is to ensure the following:
+                    <ul class="ml-4">
+                        <li>1.The efficient management of limited spectrum resources for radio communication equipment.</li>
+                        <li>2.To facilitate interoperable use, to maintain and promote efficient quality of service delivery.</li>
+                        <li>3.To facilitate the availability of quality ICT equipment on our market.</li>
+                        <li>4.To protect the health and safety of ICT equipment users.</li>
+                    </ul>
+                </p>
+                
+            </div>
+
+        </div>
+    </div>
+
 </section>
 {% endblock content %}

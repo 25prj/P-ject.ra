@@ -1,6 +1,7 @@
 from django import forms 
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth.models import User 
+from django.core.exceptions import ValidationError
 
 
 class LoginForm(AuthenticationForm):
@@ -9,14 +10,17 @@ class LoginForm(AuthenticationForm):
         fields = ['username', 'password']
 
 
+
+    
+
     username = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder':'username',
-        'class':'py-4 px-4 mb-3 w-full rounded-xl border-black',
+        'class':'py-2 h-10 px-2  w-full focus:outline-none',
     }))
 
     password = forms.CharField(widget=forms.PasswordInput(attrs={
         'placeholder':'password',
-        'class':'py-4 px-4 w-full rounded-xl border-black',
+        'class':'py-2 px-2 w-full focus:outline-none',
     }))
 
 
@@ -27,20 +31,20 @@ class SignupForm(UserCreationForm):
 
     username = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder':'Your Username',
-        'class':'w-full py-4 px-4 mb-4 rounded-xl'
-    }), label="Username")
+        'class':'py-2 px-2 w-full focus:outline-none'
+    }), label="Username" ,required=True)
 
     email = forms.CharField(widget=forms.EmailInput(attrs={
         'placeholder':'example@gmail.com',
-        'class':'w-full py-4 px-4 mb-4 rounded-xl'
-    }), label="Email")
+        'class':'py-2 px-2 w-full focus:outline-none'
+    }), label="Email", required=True)
 
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={
         'placeholder':'Enter your password'.title(),
-        'class':'w-full py-4 px-4 mb-4 rounded-xl'
-    }), label="Password")
+        'class':'py-2 px-2 w-full focus:outline-none'
+    }), label="Password", required=True)
     
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={
         'placeholder':'Confirm Password'.title(),
-        'class':'w-full py-4 px-4 mb-4 rounded-xl'
-    }), label="Confirm Password")
+        'class':'py-2 px-2 w-full focus:outline-none'
+    }), label="Confirm Password", required=True)
