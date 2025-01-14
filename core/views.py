@@ -36,31 +36,34 @@ def login_user(request):
 
 @unauthenticated_user # return login url to homepage if user is already logged in
 def signup(request):
-    
-    form = SignupForm()
     if request.method == 'POST':
-        form = SignupForm(request.POST)
-        if form.is_valid:
-           
-            username = request.POST.get('username')
-            email = request.POST.get('password')
-            password = request.POST.get('password1')
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
 
+        if len(username) < 3: #check if username is less than 3 characters
+            messages.error(request, 'username should be 3 characters or more.')
+        elif User.objects.filter(email=email).exists(): #check if email already exists
+            messages.error(request, f'This email has an account already exists.')
+            
+        elif len(password1) < 8:
+            messages.error(request, 'password is less than 8 characters.')
+        elif password1 != password2:
+            messages.error(request, 'passwords do not match')
+        else:
+            password = request.POST.get('password2')
             user = User.objects.create_user(username=username, email=email, password=password)
             
-            if 'sakara' is email:
-                user.is_superuser=True
+            if 'sakara' in email:
+                user.is_superuser = True
                 user.save()
             else:
                 user.save()
 
             return redirect('login')
-        else:
-            form = SignupForm()
-
-        return render(request, 'core/signup.html',{'form': form})
     
-    return render(request, 'core/signup.html',{'form': form})
+    return render(request, 'core/signup.html',{'form': SignupForm()})
 
 
 def contact_page(request):

@@ -10,7 +10,6 @@ class LoginForm(AuthenticationForm):
         fields = ['username', 'password']
 
 
-
     
 
     username = forms.CharField(widget=forms.TextInput(attrs={
@@ -25,9 +24,12 @@ class LoginForm(AuthenticationForm):
 
 
 class SignupForm(UserCreationForm):
+
+
     class Meta:
         model = User 
         fields = ["username", "email","password1", "password2"]
+
 
     username = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder':'Your Username',
