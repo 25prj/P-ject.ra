@@ -38,9 +38,9 @@
                         <!--user authentication verification. -->
                         {% if request.user.is_authenticated %}
                         
-                        <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 text-sm transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Join Slack</a>
-                        <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Browse Topics</a>
-                        <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Random Item</a>
+                        <a href="https://nca.org.gh/" class="px-3 py-2 mx-3 mt-2 text-gray-700 text-sm transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">main site</a>
+                        <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Dealership License</a>
+                        <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Type Approval</a>
                         <a href="{% url 'logout'%}" class="px-3 py-2 mx-3 mt-2 text-gray-700 text-sm border-2 border-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</a>
                         
                         {% else %}
@@ -62,7 +62,7 @@
                                 <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
                             </div>
     
-                            <h3 class="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">{{ request.user }}</h3>
+                            <h3 class="mx-2 text-gray-700 dark:text-gray-200 lg:inline-block">{{ request.user }}</h3>
                         </button>
                     </div>
                 </div>
